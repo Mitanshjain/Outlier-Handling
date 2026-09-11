@@ -1,0 +1,31 @@
+## Outlier Handling
+
+Outlier handling is the process of identifying and treating data points that are significantly different from the majority of observations
+in a dataset. Outliers can occur due to data entry errors, measurement errors, unusual events, or genuine extreme observations. They can
+affect statistical measures such as mean and standard deviation and may negatively impact the performance of some machine learning algorithms.
+Therefore, depending on the nature of the data, outliers can be handled using different techniques. Two common techniques are **Trimming**
+and **Capping**.
+
+
+
+
+**1. Trimming:** Trimming is the process of completely removing the observations that are identified as outliers from the dataset.
+For example, if the valid range of a variable is between 10 and 90 and a value of 100 is considered an outlier, the entire row containing
+100 can be removed. Trimming is useful when the outliers are clearly incorrect, such as data-entry or measurement errors. However, removing
+too many observations can result in loss of valuable information and can reduce the size of the dataset.
+
+
+
+
+
+**2. Capping:** Capping is the process of replacing outlier values with a predefined upper or lower limit instead of removing the
+entire observation. For example, if the upper limit is 90 and the dataset contains a value of 100, the value 100 will be replaced with 90.
+Similarly, values below the lower limit are replaced with the lower limit. Capping allows us to retain the observations while reducing the
+influence of extreme values. It is particularly useful when the outliers are genuine observations and we do not want to delete the
+corresponding rows.
+
+The limits for detecting outliers are commonly calculated using the **IQR (Interquartile Range) method**, where IQR = Q3 − Q1. The lower 
+limit is Q1 − 1.5 × IQR and the upper limit is Q3 + 1.5 × IQR. Values outside these limits are considered potential outliers.
+
+In short, **Trimming removes the complete observation containing the outlier, whereas Capping keeps the observation but replaces the extreme 
+value with an acceptable boundary value.**
